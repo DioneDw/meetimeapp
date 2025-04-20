@@ -1,0 +1,27 @@
+{"properties": [
+  {
+    "name": "auth.client-id",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.client-id'"
+  },
+  {
+    "name": "auth.client-secret",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.client-secret'"
+  },
+  {
+    "name": "auth.redirect-uri",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.redirect-uri'"
+  },
+  {
+    "name": "auth.auth-url",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.auth-url'"
+  },
+  {
+    "name": "auth.scope",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.scope'"
+  }
+]}
