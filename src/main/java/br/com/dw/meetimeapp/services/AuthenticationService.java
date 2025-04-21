@@ -29,7 +29,7 @@ public class AuthenticationService {
         return authProperties.authUrl() +
                 "?client_id=" + authProperties.clientId() +
                 "&redirect_uri=" + URLEncoder.encode(authProperties.redirectUri(), StandardCharsets.UTF_8) +
-                "&scope=" + authProperties.scope() +
+                "&scope=" + URLEncoder.encode(authProperties.scope(), StandardCharsets.UTF_8) +
                 "&response_type=code";
     }
 
