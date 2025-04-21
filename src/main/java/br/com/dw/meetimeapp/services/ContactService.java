@@ -1,0 +1,33 @@
+package br.com.dw.meetimeapp.services;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.dw.meetimeapp.client.ContactClient;
+import br.com.dw.meetimeapp.domain.dto.ContactCreateDTO;
+import br.com.dw.meetimeapp.domain.dto.ContactResponseDTO;
+
+@Service
+public class ContactService {
+
+    @Autowired
+    private ContactClient contactClient;
+
+
+    public ContactResponseDTO create(ContactCreateDTO dto, String authorizationHeaderContent){
+        String tokenHubspot = authorizationHeaderContent.replace("Bearer ","").trim();
+
+        Map<String,String> dataProperties = new HashMap<>();
+        dataProperties.put("email",dto.email());
+        dataProperties.put("lastname",dto.lastName());
+        dataProperties.put("firstname",dto.firstName());
+
+        Map<String,Object> properties = new HashMap<>();
+        properties.put("properties",dataProperties);
+
+        return contactClient.createContact(properties, tokenHubspot);
+    }
+}
