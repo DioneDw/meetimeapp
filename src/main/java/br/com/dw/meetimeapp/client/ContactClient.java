@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import br.com.dw.meetimeapp.client.exceptions.HubspotCreateContactException;
 import br.com.dw.meetimeapp.domain.dto.ContactResponseDTO;
 import reactor.core.publisher.Mono;
 
@@ -27,7 +28,7 @@ public class ContactClient {
         .onStatus(
             status -> status.isError(),
             response -> response.bodyToMono(String.class)
-            .flatMap(error -> Mono.error(new RuntimeException("Erro ao criar contato no Hubspot:" +error)))
+            .flatMap(error -> Mono.error(new HubspotCreateContactException(error)))
         )
         .bodyToMono(ContactResponseDTO.class)
         .block();

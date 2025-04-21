@@ -11,6 +11,7 @@ import br.com.dw.meetimeapp.client.HubSpotClient;
 import br.com.dw.meetimeapp.domain.record.AuthProperties;
 import br.com.dw.meetimeapp.domain.record.OAuthProperties;
 import br.com.dw.meetimeapp.domain.record.TokenResponse;
+import br.com.dw.meetimeapp.services.exceptions.InvalidCodeException;
 
 @Service
 public class AuthenticationService {
@@ -34,6 +35,10 @@ public class AuthenticationService {
     }
 
     public TokenResponse getAccessTokenFromCode(String code) {
+        if(code.isBlank() || code == null){
+            throw new InvalidCodeException();
+        }
+
         MultiValueMap<String, String> form = new LinkedMultiValueMap<>();
         form.add("grant_type", oAuthProperties.grantType());
         form.add("client_id", oAuthProperties.clientId());

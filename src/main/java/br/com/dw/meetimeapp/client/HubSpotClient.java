@@ -5,7 +5,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import br.com.dw.meetimeapp.client.exceptions.HubspotGetTokenException;
 import br.com.dw.meetimeapp.domain.record.TokenResponse;
+import reactor.core.publisher.Mono;
 
 @Component
 public class HubSpotClient {
@@ -18,6 +20,11 @@ public class HubSpotClient {
         .uri(baseUrl + "/oauth/v1/token")
         .bodyValue(form)
         .retrieve()
+        .onStatus(
+            status -> status.isError(),
+            response -> response.bodyToMono(String.class)
+            .flatMap(error -> Mono.error(new HubspotGetTokenException(error)))
+        )
         .bodyToMono(TokenResponse.class)
         .block();
     }

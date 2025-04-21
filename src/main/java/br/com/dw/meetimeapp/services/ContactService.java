@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import br.com.dw.meetimeapp.client.ContactClient;
 import br.com.dw.meetimeapp.domain.dto.ContactCreateDTO;
 import br.com.dw.meetimeapp.domain.dto.ContactResponseDTO;
+import br.com.dw.meetimeapp.services.exceptions.InvalidTokenException;
 
 @Service
 public class ContactService {
@@ -18,6 +19,10 @@ public class ContactService {
 
 
     public ContactResponseDTO create(ContactCreateDTO dto, String authorizationHeaderContent){
+        if(authorizationHeaderContent == null || !authorizationHeaderContent.startsWith("Bearer ")){
+            throw new InvalidTokenException();
+        }
+
         String tokenHubspot = authorizationHeaderContent.replace("Bearer ","").trim();
 
         Map<String,String> dataProperties = new HashMap<>();
