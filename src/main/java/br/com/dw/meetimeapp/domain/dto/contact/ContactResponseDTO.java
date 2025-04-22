@@ -1,4 +1,4 @@
-package br.com.dw.meetimeapp.domain.dto;
+package br.com.dw.meetimeapp.domain.dto.contact;
 
 public record ContactResponseDTO(
     String createdAt,

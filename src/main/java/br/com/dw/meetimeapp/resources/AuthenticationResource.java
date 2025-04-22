@@ -3,7 +3,7 @@ package br.com.dw.meetimeapp.resources;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.dw.meetimeapp.domain.record.TokenResponse;
+import br.com.dw.meetimeapp.domain.records.TokenResponse;
 import br.com.dw.meetimeapp.services.AuthenticationService;
 
 import java.net.URI;
