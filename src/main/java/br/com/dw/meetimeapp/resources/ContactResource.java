@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.dw.meetimeapp.domain.dto.ContactCreateDTO;
-import br.com.dw.meetimeapp.domain.dto.ContactResponseDTO;
+import br.com.dw.meetimeapp.domain.dto.contact.ContactCreateDTO;
+import br.com.dw.meetimeapp.domain.dto.contact.ContactResponseDTO;
 import br.com.dw.meetimeapp.services.ContactService;
 import jakarta.validation.Valid;
 
