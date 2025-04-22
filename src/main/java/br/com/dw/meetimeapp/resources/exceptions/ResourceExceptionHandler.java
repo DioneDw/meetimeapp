@@ -33,18 +33,19 @@ public class ResourceExceptionHandler {
     }
 
     @ExceptionHandler(HubspotGetTokenException.class)
-    public ResponseEntity<StandardError> getTokenException(HubspotGetTokenException e){
+    public ResponseEntity<StandartHubspotError> getTokenException(HubspotGetTokenException e){
         String error = "Falha ao obter o token integração Hubspot!";
         HttpStatus status = HttpStatus.BAD_GATEWAY;
-        StandardError response = new StandardError(Instant.now(),status.value(), error, e.getMessage());
+        
+        StandartHubspotError response = new StandartHubspotError(Instant.now(),status.value(),error,e.getMessage(),e.getHubspotError());
         return ResponseEntity.status(status).body(response);
     }
 
     @ExceptionHandler(HubspotCreateContactException.class)
-    public ResponseEntity<StandardError> createContactException(HubspotCreateContactException e){
+    public ResponseEntity<StandartHubspotError> createContactException(HubspotCreateContactException e){
         String error = "Falha ao criar novo contato integração Hubspot!";
         HttpStatus status = HttpStatus.BAD_GATEWAY;
-        StandardError response = new StandardError(Instant.now(),status.value(), error, e.getMessage());
+        StandartHubspotError response = new StandartHubspotError(Instant.now(),status.value(),error,e.getMessage(),e.getHubspotError());
         return ResponseEntity.status(status).body(response);
     }
 }

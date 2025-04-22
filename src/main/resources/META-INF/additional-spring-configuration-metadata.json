@@ -63,5 +63,10 @@
     "name": "auth.optional-scope",
     "type": "java.lang.String",
     "description": "A description for 'auth.optional-scope'"
+  },
+  {
+    "name": "oauth.base-url",
+    "type": "java.lang.String",
+    "description": "A description for 'oauth.base-url'"
   }
 ]}

@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-import br.com.dw.meetimeapp.domain.record.AuthProperties;
-import br.com.dw.meetimeapp.domain.record.OAuthProperties;
+import br.com.dw.meetimeapp.domain.records.AuthProperties;
+import br.com.dw.meetimeapp.domain.records.OAuthProperties;
 
 @SpringBootApplication
 @EnableConfigurationProperties({ AuthProperties.class, OAuthProperties.class })

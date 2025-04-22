@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import br.com.dw.meetimeapp.client.HubSpotClient;
-import br.com.dw.meetimeapp.domain.record.AuthProperties;
-import br.com.dw.meetimeapp.domain.record.OAuthProperties;
-import br.com.dw.meetimeapp.domain.record.TokenResponse;
+import br.com.dw.meetimeapp.domain.records.AuthProperties;
+import br.com.dw.meetimeapp.domain.records.OAuthProperties;
+import br.com.dw.meetimeapp.domain.records.TokenResponse;
 import br.com.dw.meetimeapp.services.exceptions.InvalidCodeException;
 
 @Service
@@ -46,6 +46,6 @@ public class AuthenticationService {
         form.add("redirect_uri", oAuthProperties.redirectUri());
         form.add("code", code);
 
-        return hubSpotClient.getToken(form, oAuthProperties.authUri());
+        return hubSpotClient.getToken(form);
     }
 }
