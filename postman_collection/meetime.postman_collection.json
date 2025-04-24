@@ -1,0 +1,49 @@
+{
+	"info": {
+		"_postman_id": "044882c1-2a78-4003-b9c7-0f5deb20143b",
+		"name": "Meetime Test",
+		"description": "Requisição POST montada para facilitar execução de terceiros do projeto.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21305915"
+	},
+	"item": [
+		{
+			"name": "Create new Contact using token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "CPz5pqjmMhIHAAEAQAAAARid3tgXINKy9CUomL6wBTIUpXcoii8WK628XmE6qB_OYjfJS6E6MAAAAEEAAAAAAAAAAAAAAAAAgAAAAAAAAAAAACAAAAAAAOABAAAAAAAAAAAAAAAQAkIUX-SSG-MGRYGUQnUK1Uw065M1D4pKA25hMVIAWgBgAGjSsvQlcAA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"properties\":{\r\n        \"email\":\"dione8teste@teste.com\",\r\n        \"lastname\":\"Evangelista\",\r\n        \"firstname\":\"Dione 8\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contact"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

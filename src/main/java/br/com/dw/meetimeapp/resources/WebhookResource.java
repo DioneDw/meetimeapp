@@ -42,17 +42,4 @@ public class WebhookResource {
             return ResponseEntity.notFound().build();
         }
     }
-
-    @Operation(
-        description = "Recupera uma síntese da lista de eventos que a aplicação recebeu via webhook do Hubspot",
-        summary = "Recupe lista de eventos vindos do webhook."
-    )
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Evento recebido com sucesso"),
-        @ApiResponse(responseCode = "500", description = "Erro interno")
-    })
-    @GetMapping(value = "/webhook/events")
-    public ResponseEntity<List<String>> getEvents(){
-        return ResponseEntity.ok().body(webhookService.getAllEvents());
-    }
 }

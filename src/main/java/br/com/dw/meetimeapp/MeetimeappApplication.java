@@ -1,12 +1,8 @@
 package br.com.dw.meetimeapp;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 
 import br.com.dw.meetimeapp.domain.records.AuthProperties;
 import br.com.dw.meetimeapp.domain.records.OAuthProperties;
